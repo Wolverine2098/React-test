@@ -27,8 +27,10 @@
 .res-card {
   padding: 5px;
   width: 200px;
-  height: 300px;
+}
+.res-card:hover{
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .search {
@@ -37,5 +39,10 @@
 
 .res-logo {
   width: 100%;
-  height: 30%;
+  height: 40%;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
 }
