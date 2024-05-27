@@ -21,6 +21,7 @@ const Body = () => {
       json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
   };
+  
   //conditional rendering
 
   const filterData = async (filteredText) => {
