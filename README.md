@@ -16,6 +16,7 @@ Welcome to the Food Delivery App for Delhi! This project has been developed from
 - **Filter selective restaurants by name**: Search for restaurants by their name.
 - **About Us and Contact Us pages**: Navigate through our About Us and Contact Us pages using React Routing (ongoing development).
 - **Restaurant Details**: Click on a restaurant to view its menu and other details.(ongoing UI development)
+- **Displays whether the User is online**: check the header shows a green dot when the user is online
 
 While the data is being fetched, a shimmer UI ensures a smooth user experience.
 
@@ -35,6 +36,12 @@ While the data is being fetched, a shimmer UI ensures a smooth user experience.
 
    - **URL**: `https://api.github.com/users/USERNAME`
    - **Type**: GET
+
+## UI Screenshots
+
+![alt text](<Screenshot 2024-06-02 at 7.34.35 PM.png>)
+
+![alt text](<Screenshot 2024-06-02 at 7.34.56 PM.png>)
 
 ## Project Status
 
