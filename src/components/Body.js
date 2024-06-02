@@ -2,7 +2,9 @@ import resObj from "../utils/mockData";
 import RestaurentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
+  const checkOnline = useOnlineStatus();
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   const [searchText, setSearchText] = useState("");
@@ -35,6 +37,9 @@ const Body = () => {
       );
     setListOfRestaurants(filteredList);
   };
+
+  if (!checkOnline)
+    return <h1>"Oops!!! Looks like offline please check your network"</h1>;
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
