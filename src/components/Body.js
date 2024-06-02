@@ -20,7 +20,7 @@ const Body = () => {
     );
     const json = await data.json();
     setListOfRestaurants(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      json.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -32,7 +32,7 @@ const Body = () => {
     );
     const json = await data.json();
     let filteredList =
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants.filter(
+      json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.filter(
         (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
       );
     setListOfRestaurants(filteredList);
@@ -45,16 +45,17 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex justify-between">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="px-4 py-2 bg-blue-100 m-4 rounded-lg"
             onClick={() => {
               filterData(searchText);
             }}
@@ -62,19 +63,21 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            let filteredList = resObj.filter(
-              (restaurant) => restaurant.info.avgRating > 4.2
-            );
-            setListOfRestaurants(filteredList);
-          }}
-        >
-          Top rated restaurant
-        </button>
+        <div className="search m-4 p-4 flex items-center">
+          <button
+            className="px-4 py-2 bg-blue-50 rounded-lg hover:bg-blue-100"
+            onClick={() => {
+              let filteredList = resObj.filter(
+                (restaurant) => restaurant.info.avgRating > 4.2
+              );
+              setListOfRestaurants(filteredList);
+            }}
+          >
+            Top rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {listOfRestaurants.map((restaurant) => (
           <RestaurentCard key={restaurant.info.id} resData={restaurant} />
         ))}

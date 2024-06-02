@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 const RestaurentCard = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRating, costForTwo, sla, id } = resData.info;
-  console.log("view the data", resData.info);
   return (
     <Link to={"./restaurants/" + id}>
-      <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+      <div className="m-4 p-4 w-[250px] rounded-lg bg-blue-50 hover:bg-blue-100 shadow-md">
         <img
-          className="res-logo"
+          className="rounded-lg"
           alt="res-logo"
           src={CDN_URL + resData.info.cloudinaryImageId}
         />
-        <h3>{name}</h3>
+        <h3 className="font-bold py-4 text-lg">{name}</h3>
         <h5>{cuisines.join(", ")}</h5>
         <h5>{avgRating + " stars"}</h5>
         <h5>{costForTwo}</h5>
