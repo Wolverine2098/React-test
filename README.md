@@ -27,8 +27,14 @@ While the data is being fetched, a shimmer UI ensures a smooth user experience.
    - **Type**: GET
 
 2. **Fetch restaurant menu and details**
+
    - **URL**: `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.65200&lng=77.16630&restaurantId={}&catalog_qa={}&submitAction=ENTER`
    - **Type**: POST
+
+3. **To Fetch the Contributer data in about us section**
+
+   - **URL**: `https://api.github.com/users/USERNAME`
+   - **Type**: GET
 
 ## Project Status
 
