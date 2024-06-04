@@ -6,7 +6,7 @@ const RestaurantCategory = (props) => {
   const [showItemList, setShowItemList] = useState(false);
   console.log("went here", data);
   return (
-    <div className="w-6/12 bg-gray-50 shadow-lg mx-auto my-6 p-4">
+    <div className="w-6/12 bg-blue-50 shadow-lg mx-auto my-6 p-4 hover:bg-blue-100">
       <div
         className="flex justify-between cursor-pointer"
         onClick={() => {
