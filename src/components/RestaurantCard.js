@@ -24,7 +24,6 @@ const RestaurentCard = (props) => {
 export default RestaurentCard;
 
 export const RestaurantCardPromoted = (RestaurentCard) => {
-  console.log("inside promoted");
   return (props) => {
     return (
       <div>

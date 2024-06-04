@@ -6,8 +6,8 @@ const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const checkOnline = useOnlineStatus();
   return (
-    <div class="flex justify-between shadow-lg m-2 bg-blue-100">
-      <div class="logo-container">
+    <div className="flex justify-between shadow-lg m-2 bg-blue-100">
+      <div className="logo-container">
         <img className="w-[6rem]" src={logo} />
       </div>
       <div className="flex items-center">
