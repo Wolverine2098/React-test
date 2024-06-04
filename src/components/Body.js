@@ -3,11 +3,14 @@ import RestaurentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RestaurantCardPromoted } from "./RestaurantCard";
 const Body = () => {
   const checkOnline = useOnlineStatus();
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const PromotedCard = RestaurantCardPromoted(RestaurentCard);
 
   useEffect(() => {
     fetchData();
@@ -19,8 +22,13 @@ const Body = () => {
       "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.619583&lng=77.019518&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+    console.log("data", json);
     setListOfRestaurants(
       json.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    console.log(
+      "we have the data",
+      listOfRestaurants[0]?.info?.sla?.deliveryTime
     );
   };
 
@@ -31,6 +39,7 @@ const Body = () => {
       "https://thingproxy.freeboard.io/fetch/http://www.swiggy.com/dapi/restaurants/list/v5?lat=28.619583&lng=77.019518&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+
     let filteredList =
       json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.filter(
         (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -78,9 +87,13 @@ const Body = () => {
         </div>
       </div>
       <div className="flex flex-wrap">
-        {listOfRestaurants.map((restaurant) => (
-          <RestaurentCard key={restaurant.info.id} resData={restaurant} />
-        ))}
+        {listOfRestaurants.map((restaurant) =>
+          restaurant?.info?.sla?.deliveryTime <= 30 ? (
+            <PromotedCard key={restaurant.info.id} resData={restaurant} />
+          ) : (
+            <RestaurentCard key={restaurant.info.id} resData={restaurant} />
+          )
+        )}
       </div>
     </div>
   );
