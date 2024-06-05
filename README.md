@@ -43,6 +43,10 @@ While the data is being fetched, a shimmer UI ensures a smooth user experience.
 
 ![alt text](<Screenshot 2024-06-02 at 7.34.56 PM.png>)
 
+![alt text](<Screenshot 2024-06-05 at 10.29.43 AM.png>)
+
+![alt text](<Screenshot 2024-06-05 at 10.30.21 AM.png>)
+
 ## Project Status
 
 This project is currently in progress, with ongoing development to enhance features and user experience.
