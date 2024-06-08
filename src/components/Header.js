@@ -3,11 +3,15 @@ import logo from "../../assets/foodIcon.png";
 import { useState, useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const checkOnline = useOnlineStatus();
 
   const data = useContext(UserContext);
+
+  // subscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between shadow-lg m-2 bg-blue-100">
       <div className="logo-container">
@@ -27,7 +31,7 @@ const Header = () => {
           <li className="px-4">
             <Link to="./Contact">Contact Us</Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4 font-bold">Cart({cartItems.length})</li>
           <button
             className="login"
             onClick={() => {
