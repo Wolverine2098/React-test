@@ -8,12 +8,16 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appstore";
 const AppLayout = () => {
   return (
-    <div id="App">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div id="App">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
