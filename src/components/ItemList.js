@@ -31,7 +31,7 @@ const ItemList = ({ items }) => {
             <div className="absolute">
               <button
                 className="p-2 mx-16 rounded-lg bg-black shadow-lg text-white"
-                onClick={() => handleAddItem(item.card.info.name)}
+                onClick={() => handleAddItem(item)}
               >
                 Add +
               </button>
